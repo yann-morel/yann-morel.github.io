@@ -1,0 +1,259 @@
+/* ==========================================================================
+   1. POLICES & CONFIGURATION GLOBALE
+   ========================================================================== */
+
+@font-face {
+	font-family: 'adelphe trouble bold italic';
+	src: url('fonts/Adelphe-Trouble-FlorealBoldItalic.woff') format('woff');
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'adelphe trouble italic';
+	src: url('fonts/Adelphe-Trouble-FlorealItalic.woff') format('woff');
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'adelphe';
+	src: url('fonts/Adelphe-GerminalRegular.woff') format('woff');
+	font-display: swap;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	cursor: none !important; /* Regroupement du curseur personnalisé */
+}
+
+html, body, a, button, li, summary {
+	cursor: none !important;
+}
+
+body {
+	background-color: #ffffff;
+	height: 100vh;
+	overflow-x: hidden;
+}
+
+#custom-cursor {
+	width: 22px;
+	height: 22px;
+	position: fixed;
+	pointer-events: none;
+	z-index: 200;
+	background-image: url("img/point.svg");
+	background-size: contain;
+	background-repeat: no-repeat;
+	transform: translate(-50%, -50%);
+	will-change: transform;
+}
+
+/* ==========================================================================
+   2. STRUCTURATION DE LA PAGE & TYPOGRAPHIES
+   ========================================================================== */
+
+.pageindex {
+	position: relative;
+	z-index: 10;
+	height: 100vh;
+	width: 100vw;
+	padding: 5px;
+	background-color: white;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.titrenom, .projet, .nomindex {
+	font-family: 'adelphe trouble italic', serif;
+	color: #000000;
+	text-align: center;
+	width: 100%;
+}
+
+.titrenom {
+	font-size: clamp(3rem, 15vw, 10rem);
+	line-height: 1;
+	padding: 0 10px;
+}
+
+.projet {
+	font-size: clamp(2rem, 8vw, 5rem);
+	line-height: 1.1;
+}
+
+.nomindex {
+	font-size: clamp(2rem, 2.5vw, 7rem);
+	line-height: 1;
+	padding: 0 10px;
+}
+
+p {
+	font-family: 'adelphe', serif;
+	font-size: clamp(1.2rem, 4vw, 3rem);
+	color: #000000;
+	line-height: 1;
+	text-align: justify;
+	text-align-last: justify;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	padding: 5px;
+}
+
+/* ==========================================================================
+   2.BIS STRUCTURATION PAGES PROJETS
+   ========================================================================== */
+
+.pageprojet {
+	   display: flex;
+	   flex-direction: row;
+	   align-items: stretch;
+	   gap: 20px;
+	   height: 100vh;      /* Force la page à faire la hauteur de l'écran */
+	   width: 100vw;       /* Prend toute la largeur */
+	   overflow: hidden;   /* Empêche la page entière de scroller */
+	   padding: 10px;
+   }
+	  
+   .colonne-texte {
+	   width: 35%;
+	   display: flex;
+	   flex-direction: column;
+	   justify-content: flex-start;
+	   text-align: center;
+	   height: 100%;
+	   overflow-y: auto;  
+   }
+	  
+   .image-container {
+	   width: 85%;          
+	   height: 100%;
+	   position: relative;
+	   z-index: 100;
+	   
+	   /* Propriétés pour le scroll horizontal */
+	   display: flex;
+	   flex-direction: row;
+	   align-items: center;
+	   overflow-x: auto;    /* Active le scroll horizontal */
+	   overflow-y: hidden;  /* Coupe le scroll vertical */
+	   scroll-snap-type: x mandatory; /* Optionnel : aimante les images au scroll */
+	   gap: 15px;           
+   }
+   
+   .image-container img {
+	   height: auto;      
+	   width: auto;         
+	   max-height: 100%;
+	   object-fit: contain;
+	   flex-shrink: 0;      
+   }
+
+.titreprojet {
+	font-family: 'adelphe trouble bold italic', serif;
+	font-size: clamp(4rem, 4vw, 4.5rem);
+	color: #000000;
+	line-height: 1.1;
+	text-align: center;
+	padding-bottom: 10px;
+}
+
+.nomprojet {
+	font-family: 'adelphe trouble italic', serif;
+	font-size: clamp(1.2rem, 1.8vw, 2.2rem);
+	color: #000000;
+	line-height: 1.1;
+	text-align: center;
+	padding: 0;
+	margin-bottom: 40px;
+}
+
+.work, .lien {
+	color: black;
+	text-decoration: none;
+}
+
+.work {
+	display: inline-block;
+}
+
+a:hover {
+	color: lightgray;
+}
+
+.description {
+	font-family: 'adelphe', serif;
+	font-size: clamp(0.9rem, 0.8vw, 0.8rem);
+	color: #000000;
+	line-height: 1.2;
+	text-align: left;
+	text-align-last: left;
+	position: relative;
+	margin-bottom: 15px;
+	z-index: 5;
+}
+
+
+
+
+
+
+/* ==========================================================================
+   3. RESPONSIVE POUR ÉCRANS < 1024px (TABLETTES & MOBILES)
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+   body {
+	   height: auto;
+	   overflow-y: auto;
+   }
+   
+   .pageprojet {
+	   height: auto;
+	   min-height: 100vh;
+	   width: 100vw;
+	   padding: 20px;
+	   display: flex;
+	   flex-direction: column; 
+	   align-items: center;
+	   justify-content: flex-start;
+	   overflow: visible; 
+   }
+   
+   .colonne-texte {
+	   width: 100%; 
+	   height: auto;
+	   overflow-y: visible; 
+	   margin-bottom: 30px;
+   }
+   
+   .description {
+	   font-size: clamp(1rem, 2.5vw, 1.5rem); 
+	   line-height: 1.4;
+	   text-align: left;
+	   text-align-last: left;
+	   width: 100%;
+	   padding: 0;
+   }
+   
+   .image-container {
+	   width: 100%; 
+	   flex-direction: column; 
+	   height: auto;
+	   overflow-x: visible;
+	   overflow-y: visible;
+	   gap: 20px;
+   }
+   
+   .image-container img {
+	   width: 100%;
+	   max-width: 600px; 
+	   height: auto;
+	   max-height: none;
+	   flex-shrink: 1; 
+   }
+   
+}
