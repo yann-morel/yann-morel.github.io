@@ -209,6 +209,10 @@ p {
 	display: inline-block;
 }
 
+.work:hover,
+.lien:hover {
+	color: #d4d4d4;
+}
 
 .description {
 	font-family: 'adelphe', serif;
